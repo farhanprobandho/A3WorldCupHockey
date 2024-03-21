@@ -110,6 +110,8 @@ public class Game
             homeTeamScore = homeTeamScore + homeTeamScoreOT;
             awayTeamScore = awayTeamScore + awayTeamScoreOT;
         }
+        homeTeam.addGoalDifference(homeTeamScore - awayTeamScore);
+        awayTeam.addGoalDifference(awayTeamScore - homeTeamScore);
     }
     
     public void simulateGame()

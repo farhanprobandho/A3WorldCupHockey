@@ -105,13 +105,13 @@ public class Group
         
         if (homeTeamScore > awayTeamScore)
         {
-            homeTeamPoints = 2;
-           awayTeamPoints = 0;
+            homeTeamPoints = 2f;
+           awayTeamPoints = 0f;
         }
         else 
         {
-            homeTeamPoints = 0;
-            awayTeamPoints = 2;
+            homeTeamPoints = 0f;
+            awayTeamPoints = 2f;
         }
         if (game.isOvertime())
         {
@@ -147,6 +147,10 @@ public class Group
      */
     public void display()
     {
-         System.out.println(teams.get(0));
+        System.out.println(name);
+         for(Team team: teams)
+         {
+             System.out.println(team);
+        }
     }
 }

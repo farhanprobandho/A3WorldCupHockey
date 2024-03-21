@@ -13,6 +13,7 @@ public class Team
     // instance variables 
     private String name;
     private float points;
+    private int goalDifference;
     /**
      * Constructor for objects of class Team
      */
@@ -20,6 +21,7 @@ public class Team
     {
         this.name = name;
         this.points = 0;
+        this.goalDifference = 0;
     }
 
     /**
@@ -56,7 +58,7 @@ public class Team
      */
     public String toString()
     {
-         String text = "Country: " + name + "Points: " + points;
+         String text =String.format("%-15s %-8.1f %-8d ", name,points,goalDifference);
          return text;
     }
     /**
@@ -67,5 +69,14 @@ public class Team
     public void display()
     {
          System.out.println(toString());
+    }
+    /**
+     * Method to return the name of the team
+     *
+     * @return name The name of the team
+     */
+    public void addGoalDifference(int difference)
+    {
+         goalDifference = goalDifference + difference;
     }
 }

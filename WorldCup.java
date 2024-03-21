@@ -25,6 +25,17 @@ public class WorldCup
         this.groupNumber = groupNumber;
         this.groupSize = groupSize;
     }
+    /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public void hockeyCupSetup()
+    {
+        populateCountries();
+        populateGroups();
+    }
 
     /**
      * An example of a method - replace this comment with your own
@@ -94,5 +105,29 @@ public class WorldCup
     public Group getGroup(int index)
     {
         return groups.get(index);
+    }
+    /**
+     * Method to return the name of the team
+     *
+     * @return name The name of the team
+     */
+    public void display()
+    {
+         for(Group group: groups)
+         {
+             group.display();
+        }
+    }
+    /**
+     * Method to return the name of the team
+     *
+     * @return name The name of the team
+     */
+    public void simulateGroups()
+    {
+         for(Group group: groups)
+         {
+             group.createGames();
+        }
     }
 }
