@@ -49,4 +49,23 @@ public class Team
     {
          this.points = this.points + points;
     }
+    /**
+     * Method to return the name of the team
+     *
+     * @return name The name of the team
+     */
+    public String toString()
+    {
+         String text = "Country: " + name + "Points: " + points;
+         return text;
+    }
+    /**
+     * Method to return the name of the team
+     *
+     * @return name The name of the team
+     */
+    public void display()
+    {
+         System.out.println(toString());
+    }
 }

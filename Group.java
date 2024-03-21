@@ -140,4 +140,13 @@ public class Group
     {
         return teams.get(index).getPoints();
     }
+    /**
+     * Method to return the name of the team
+     *
+     * @return name The name of the team
+     */
+    public void display()
+    {
+         System.out.println(teams.get(0));
+    }
 }

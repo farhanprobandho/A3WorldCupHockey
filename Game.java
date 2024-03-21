@@ -13,8 +13,8 @@ public class Game
     private Team awayTeam;
     private int homeTeamScore;
     private int awayTeamScore;
-    private double homeTeamPoints;
-    private double awayTeamPoints;
+    private float homeTeamPoints;
+    private float awayTeamPoints;
     private Boolean overtime;
 
     /**
@@ -75,7 +75,7 @@ public class Game
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public double getHomeTeamPoints()
+    public float getHomeTeamPoints()
     {
         return homeTeamPoints;
     }
@@ -85,7 +85,7 @@ public class Game
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public double getAwayTeamPoints()
+    public float getAwayTeamPoints()
     {
         return awayTeamPoints;
     }
@@ -111,44 +111,10 @@ public class Game
             awayTeamScore = awayTeamScore + awayTeamScoreOT;
         }
     }
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public void calculatePoints()
-    {
-        if (homeTeamScore > awayTeamScore)
-        {
-            homeTeamPoints = 2;
-            awayTeamPoints = 0;
-        }
-        else 
-        {
-            homeTeamPoints = 0;
-            awayTeamPoints = 2;
-        }
-        if (overtime)
-        {
-            if (homeTeamScore > awayTeamScore)
-        {
-            homeTeamPoints = 1.5;
-            awayTeamPoints = 0.5;
-        }
-        else 
-        {
-            homeTeamPoints = 0.5;
-            awayTeamPoints = 1.5;
-        }
-        }
-        homeTeamPoints = homeTeamPoints + (homeTeamScore * 0.1);
-        awayTeamPoints = awayTeamPoints + (awayTeamScore * 0.1);
-    }
+    
     public void simulateGame()
     {
         generateScore();
-        calculatePoints();
     }
     /**
      * An example of a method - replace this comment with your own
