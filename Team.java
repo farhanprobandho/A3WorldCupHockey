@@ -79,4 +79,13 @@ public class Team
     {
          goalDifference = goalDifference + difference;
     }
+    /**
+     * Method to return the name of the team
+     *
+     * @return name The name of the team
+     */
+    public float getGoalDifference()
+    {
+        return this.goalDifference;
+    }
 }

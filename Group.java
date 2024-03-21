@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.Collections;
 /**
  * Contains information about a group
  *
@@ -66,7 +67,7 @@ public class Group
             }
             index++;
         }
-        
+        sortGroups();
     }
     /**
      * Method to insert a team into the group
@@ -151,6 +152,33 @@ public class Group
          for(Team team: teams)
          {
              System.out.println(team);
+        }
+    }
+    /**
+     * Method to insert a team into the group
+     *
+     * @param Team an instance of class Team
+     */
+    public void sortGroups()
+    {
+        int i = 0;
+        while (i < teams.size())
+        {   int minIndex = i;
+            int j = i + 1;
+            while (j < teams.size())
+            {
+                if(teams.get(minIndex).getPoints() < teams.get(j).getPoints())
+                {
+                    minIndex = j;
+                }
+                else if (teams.get(minIndex).getPoints()==teams.get(j).getPoints() && teams.get(minIndex).getGoalDifference() < teams.get(j).getGoalDifference())
+                {
+                    minIndex = j;
+                }
+                j++;
+            }
+            Collections.swap(teams, i, minIndex);
+            i++;
         }
     }
 }
