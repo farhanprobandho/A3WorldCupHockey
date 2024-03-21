@@ -1,14 +1,13 @@
 import java.util.ArrayList;
 import java.util.Random;
 /**
- * Write a description of class WorldCup here.
+ * Class that simulates the Hockey World Cup group stage.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Farhan Ishrak Probandho)
+ * @version (03.21.2024)
  */
 public class WorldCup
 {
-    // instance variables - replace the example below with your own
     private ArrayList<String> countries;
     private ArrayList<Group> groups;
     private int groupNumber;
@@ -19,17 +18,14 @@ public class WorldCup
      */
     public WorldCup(int groupNumber,int groupSize)
     {
-        // initialise instance variables
         countries = new ArrayList();
         groups = new ArrayList();
         this.groupNumber = groupNumber;
         this.groupSize = groupSize;
     }
     /**
-     * An example of a method - replace this comment with your own
+     * Sets up the hockey cup by populating the groups with random groups.
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
      */
     public void hockeyCupSetup()
     {
@@ -38,14 +34,11 @@ public class WorldCup
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Method that populates country names.
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
      */
-    public void populateCountries()
+    private void populateCountries()
     {
-        // put your code here
         countries.add("Canada");
         countries.add("Finland");
         countries.add("Russia");
@@ -71,18 +64,16 @@ public class WorldCup
         countries.add("Romania");
     }
     /**
-     * An example of a method - replace this comment with your own
+     * Method that populates every group with random teams
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
      */
-    public void populateGroups()
+    private void populateGroups()
     {
         int i = 0;
         Random random = new Random();
         while (i< groupNumber)
         {
-            Group group = new Group("Group" + (i+1));
+            Group group = new Group("Group " + (i+1));
             int j = 0;
             while(j<groupSize)
             {
@@ -97,37 +88,26 @@ public class WorldCup
         }
     }
     /**
-     * An example of a method - replace this comment with your own
+     * Method to display the results of the tournament group stage.
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public Group getGroup(int index)
-    {
-        return groups.get(index);
-    }
-    /**
-     * Method to return the name of the team
-     *
-     * @return name The name of the team
      */
     public void display()
     {
          for(Group group: groups)
          {
-             group.display();
+             group.calculateStanding();
         }
     }
     /**
-     * Method to return the name of the team
+     * Method that creates all possible matches between teams from the same group, and adds them to the appropriate groups.
+     * In other words, simulates all the groups.
      *
-     * @return name The name of the team
      */
-    public void simulateGroups()
+    public void randomGames()
     {
          for(Group group: groups)
          {
-             group.createGames();
+             group.simulateGroup();
         }
     }
 }

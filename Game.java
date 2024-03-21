@@ -1,9 +1,10 @@
 import java.util.Random;
 /**
- * Contains information about a Match
+ * Contains information about a Match.
+ * This class is responsible for simulating a game and adding points to respective teams.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author (Farhan Ishrak Probandho)
+ * @version (03.21.2024)
  */
 public class Game
 {
@@ -30,72 +31,48 @@ public class Game
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Accessor method for the home team in the match
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @return homeTeam The home team object
      */
     public Team getHomeTeam()
     {
        return homeTeam;
     }
     /**
-     * An example of a method - replace this comment with your own
+     * Accessor method for the away team in the match
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @return awayTeam The away team object
      */
     public Team getAwayTeam()
     {
         return awayTeam;
     }
     /**
-     * An example of a method - replace this comment with your own
+     * Accessor method for the home team's score in the match
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @return homeTeamScore The home team's score 
      */
     public int getHomeTeamScore()
     {
         return homeTeamScore;
     }
     /**
-     * An example of a method - replace this comment with your own
+     * Accessor method for the away team's score in the match
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @return awayTeamScore The away team's score 
      */
     public int getAwayTeamScore()
     {
         return awayTeamScore;
     }
     /**
-     * An example of a method - replace this comment with your own
+     * Method that simulates the match between the two teams. 
+     * If scores are tied at half-time, it keeps playing overtime until a winner is decided.
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @return    
      */
-    public float getHomeTeamPoints()
-    {
-        return homeTeamPoints;
-    }
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public float getAwayTeamPoints()
-    {
-        return awayTeamPoints;
-    }
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public void generateScore()
+    private void generateScore()
     {
         Random random = new Random();
         homeTeamScore = random.nextInt(MAX_GOAL);
@@ -113,16 +90,52 @@ public class Game
         homeTeam.addGoalDifference(homeTeamScore - awayTeamScore);
         awayTeam.addGoalDifference(awayTeamScore - homeTeamScore);
     }
-    
+    /**
+     * Method that calculates the points gained by each team
+     */
+    private void calculatePoints()
+    {
+        
+        if (homeTeamScore > awayTeamScore)
+        {
+            homeTeamPoints = 2f;
+           awayTeamPoints = 0f;
+        }
+        else 
+        {
+            homeTeamPoints = 0f;
+            awayTeamPoints = 2f;
+        }
+        if (isOvertime())
+        {
+            if (homeTeamScore > awayTeamScore)
+        {
+            homeTeamPoints = 1.5f;
+            awayTeamPoints = 0.5f;
+        }
+        else 
+        {
+            homeTeamPoints = 0.5f;
+            awayTeamPoints = 1.5f;
+        }
+        }
+        homeTeamPoints = homeTeamPoints + (homeTeamScore * 0.1f);
+        homeTeam.addPoints(homeTeamPoints);
+        awayTeamPoints = awayTeamPoints + (awayTeamScore * 0.1f);
+        awayTeam.addPoints(awayTeamPoints);
+    }
+    /**
+     * Method that simulates a game and assigns points to the two teams
+     */
     public void simulateGame()
     {
         generateScore();
+        calculatePoints();
     }
     /**
-     * An example of a method - replace this comment with your own
+     * Method that returns true if the game went to overtime, false if it did not
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @return Boolean Returns whether the game went to overtime
      */
     public Boolean isOvertime()
     {
