@@ -8,6 +8,7 @@ HOW TO START THIS PROJECT: 1) Create an object of instance WorldCup, specifying 
                               (Optional) Call the method display() to show the current groups, and all teams should have zero points.
                            3) Call the method randomGames(), which randomly simulates matches in every single group.
                            4) Call the method display() to view the standings and points at the end of the Group Stage. 
+                              This method takes abou 5-10 seconds. 
 AUTHORS: Farhan Ishrak Probandho (10 points)
          Aryan Biju Daniel (10 points)
          Rohan Torul (10 points)
